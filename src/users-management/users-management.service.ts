@@ -4,6 +4,7 @@ import { UpdateUsersManagementDto } from './dto/update-users-management.dto';
 import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class UsersManagementService {
+  // eslint-disable-next-line prettier/prettier
   constructor(private readonly prismaService: PrismaClient) {}
   create(createUsersManagementDto: CreateUsersManagementDto) {
     return 'This action adds a new usersManagement';
