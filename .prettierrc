@@ -1,8 +1,9 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
-  "endOfLine": "auto",
+  "endOfLine":"lf",
   "tabWidth": 2,
   "parser":"flow"
+  
   
 }

@@ -21,17 +21,17 @@ export class UsersManagementController {
     return this.usersManagementService.create(createUsersManagementDto);
   }
 
-  @Get()
+  @Get('/all')
   public async findAll() {
     return await this.usersManagementService.findAll();
   }
 
-  @Get(':id')
+  @Get('/one/:id')
   findOne(@Param('id') id: string) {
     return this.usersManagementService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('/update/one/:id')
   update(
     @Param('id') id: string,
     @Body() updateUsersManagementDto: UpdateUsersManagementDto,
@@ -39,7 +39,7 @@ export class UsersManagementController {
     return this.usersManagementService.update(+id, updateUsersManagementDto);
   }
 
-  @Delete(':id')
+  @Delete('/delete/one/:id')
   remove(@Param('id') id: string) {
     return this.usersManagementService.remove(+id);
   }
