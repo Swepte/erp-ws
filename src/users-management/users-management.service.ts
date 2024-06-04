@@ -10,10 +10,19 @@ export class UsersManagementService {
     return 'This action adds a new usersManagement';
   }
 
+  
+
   public async findAll() {
     const z = await this.prismaService.userAccount.findMany();
     console.log(z);
     return { data: z };
+  }
+
+
+  public async createUser(){
+    
+
+
   }
 
   findOne(id: number) {

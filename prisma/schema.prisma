@@ -14,9 +14,25 @@ datasource db {
 }
 
 model UserAccount {
-  id       Int    @unique() @default(autoincrement())
-  username String @unique
-  password String
+  id             Int       @unique() @default(autoincrement())
+  uuid           String    @unique @default(uuid())
+  createdAt      DateTime  @default(now()) @db.Timestamptz(3)
+  createdBy      String?
+  updatedAt      DateTime? @updatedAt @db.Timestamptz(3)
+  updatedBy      String?
+  deletedBy      String?
+  isDeleted      Boolean   @default(false)
+  ownerAccountId String?
+
+  email    String   @unique
+  hash     String
+  roles    String[]
+  username String?  @unique
+  metadata Json?
+  
+  // UserSession  UserSession[]
+  // UserPermission UserPermission?
+  // userInfo UserInfo?
 
   @@map("user-account")
 }
