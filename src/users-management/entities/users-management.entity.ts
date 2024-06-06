@@ -1,11 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { IsUUID, IsOptional, IsString } from 'class-validator';
-export class UsersManagement {
+import { DefaultEntity } from 'src/default-libraries/entity/default.entity';
+export class UsersManagement extends DefaultEntity {
   @ApiProperty()
-  @IsUUID()
-  @IsOptional()
-  id: string;
+  @IsString()
+  email: string;
 
   @ApiProperty()
   @IsString()
@@ -13,5 +13,5 @@ export class UsersManagement {
 
   @ApiProperty()
   @IsString()
-  password: string;
+  hash: string;
 }

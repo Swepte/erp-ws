@@ -24,12 +24,12 @@ model UserAccount {
   isDeleted      Boolean   @default(false)
   ownerAccountId String?
 
-  email    String   @unique
+  email    String  @unique
   hash     String
-  roles    String[]
-  username String?  @unique
-  metadata Json?
-  
+  username String? @unique
+
+  // roles    String[]
+  // metadata Json?
   // UserSession  UserSession[]
   // UserPermission UserPermission?
   // userInfo UserInfo?

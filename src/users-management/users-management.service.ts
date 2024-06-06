@@ -7,10 +7,16 @@ export class UsersManagementService {
   // eslint-disable-next-line prettier/prettier
   constructor(private readonly prismaService: PrismaClient) {}
   create(createUsersManagementDto: CreateUsersManagementDto) {
-    return 'This action adds a new usersManagement';
+    const data = this.prismaService.userAccount.create({
+      data: {
+        ...createUsersManagementDto,
+        // email: createUsersManagementDto.email,
+        // hash: createUsersManagementDto.hash,
+        // username: createUsersManagementDto.username,
+      },
+    });
+    return data;
   }
-
-  
 
   public async findAll() {
     const z = await this.prismaService.userAccount.findMany();
@@ -18,15 +24,13 @@ export class UsersManagementService {
     return { data: z };
   }
 
-
-  public async createUser(){
-    
-
-
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} usersManagement`;
+  public async findOne(username: string) {
+    const user = await this.prismaService.userAccount.findFirst({
+      where: {
+        username: username,
+      },
+    });
+    return user;
   }
 
   update(id: number, updateUsersManagementDto: UpdateUsersManagementDto) {
