@@ -11,8 +11,10 @@ import {
 import { UsersManagementService } from './users-management.service';
 import { CreateUsersManagementDto } from './dto/create-users-management.dto';
 import { UpdateUsersManagementDto } from './dto/update-users-management.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('users-management')
+@ApiTags('user-management')
 export class UsersManagementController {
   constructor(
     private readonly usersManagementService: UsersManagementService,
